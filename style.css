@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;700&display=swap');
+
+body { font-family: 'Noto Sans Lao', sans-serif; }
+
+.form-input {
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.form-input:focus {
+    border-color: #4f46e5;  
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+} 

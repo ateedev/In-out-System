@@ -127,7 +127,14 @@ async function handleFormSubmit(event, type, isEdit) {
         Swal.fire({ icon: 'error', title: 'ຜິດພາດ', text: error.message });
     }
 }
-
+function openView(encodedRow) {
+    const row = JSON.parse(decodeURIComponent(encodedRow));
+    const modal = document.getElementById('edit-modal'); // ໃຊ້ modal ໂຕດຽວກັບ Edit ກໍໄດ້
+    const modalBody = document.getElementById('modal-body');
+    
+    modalBody.innerHTML = Components.viewDetails(row);
+    modal.classList.remove('hidden');
+}
 // --- ຟັງຊັນ ລຶບຂໍ້ມູນ (Delete) ---
 async function deleteItem(id) {
     const result = await Swal.fire({

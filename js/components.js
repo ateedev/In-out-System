@@ -131,6 +131,8 @@ const rowsPerPage = 15;   // ຈຳນວນແຖວຕໍ່ໜ້າ
                             <td class="p-4 text-sm text-gray-600">${row[3]}</td>
                             <td class="p-4 text-sm">${row[8]}</td>
                             <td class="p-4 flex justify-center gap-3">
+                            <button onclick="openView('${encodeURIComponent(JSON.stringify(row))}')" class="w-9 h-9 rounded-xl flex items-center justify-center text-indigo-500 hover:bg-indigo-50 transition-all border border-transparent hover:border-indigo-100">
+                              <i class="fas fa-eye"></i> </button>
                                 <button onclick="editItem('${encodeURIComponent(JSON.stringify(row))}')" class="p-2 text-blue-500 hover:bg-blue-50 rounded-lg transition-all"> 
                                     <i class="fas fa-edit"></i>
                                 </button>
@@ -165,6 +167,64 @@ const rowsPerPage = 15;   // ຈຳນວນແຖວຕໍ່ໜ້າ
             </div>
         </div>`;
   },
+  viewDetails: (row) => `
+    <div class="max-w-2xl bg-white p-8 rounded-3xl mx-auto font-lao">
+        <div class="flex justify-between items-center mb-8 border-b pb-4">
+            <h3 class="text-2xl font-bold text-indigo-600">ລາຍລະອຽດເອກະສານ</h3>
+            <span class="bg-indigo-100 text-indigo-600 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest">${row[0]}</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-y-6 text-sm">
+            <div class="col-span-1">
+                <p class="text-gray-400 mb-1 uppercase font-bold text-[10px]">ເລກທີຂາເຂົ້າ/ອອກ</p>
+                <p class="text-lg font-bold text-slate-800">${row[1] || '-'}</p>
+            </div>
+            <div class="col-span-1">
+                <p class="text-gray-400 mb-1 uppercase font-bold text-[10px]">ວັນທີລົງທະບຽນ</p>
+                <p class="text-lg font-bold text-slate-800">${new Date(row[2]).toLocaleDateString('lo-LA')}</p>
+            </div>
+
+            <div class="col-span-2 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                <p class="text-gray-400 mb-2 uppercase font-bold text-[10px]">ເນື້ອໃນ/ລາຍລະອຽດ</p>
+                <p class="text-slate-700 leading-relaxed text-base">${row[3] || '-'}</p>
+            </div>
+
+            <div class="col-span-1">
+                <p class="text-gray-400 mb-1 uppercase font-bold text-[10px]">ເລກທີເອກະສານຕົ້ນສະບັບ</p>
+                <p class="font-bold text-slate-700">${row[4] || '-'}</p>
+            </div>
+            <div class="col-span-1">
+                <p class="text-gray-400 mb-1 uppercase font-bold text-[10px]">ວັນທີເອກະສານຕົ້ນສະບັບ</p>
+                <p class="font-bold text-slate-700">${row[5] ? new Date(row[5]).toLocaleDateString('lo-LA') : '-'}</p>
+            </div>
+
+            <div class="col-span-1">
+                <p class="text-gray-400 mb-1 uppercase font-bold text-[10px]">ຈາກ/ເຖິງ ພາກສ່ວນ</p>
+                <p class="font-bold text-slate-700">${row[6] || '-'}</p>
+            </div>
+            <div class="col-span-1">
+                <p class="text-gray-400 mb-1 uppercase font-bold text-[10px]">ປະເພດເອກະສານ</p>
+                <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-lg font-bold">${row[7] || '-'}</span>
+            </div>
+
+            <div class="col-span-2 border-t pt-4">
+                <p class="text-gray-400 mb-1 uppercase font-bold text-[10px]">ຜູ້ຮັບຜິດຊອບວຽກ</p>
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white">
+                        <i class="fas fa-user-tie text-xs"></i>
+                    </div>
+                    <p class="font-bold text-indigo-600 text-base">${row[8] || '-'}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10">
+            <button onclick="closeModal()" class="w-full bg-slate-100 text-slate-500 p-4 rounded-2xl font-bold hover:bg-slate-200 transition-all uppercase tracking-widest text-xs">
+                ປິດໜ້າຕ່າງນີ້
+            </button>
+        </div>
+    </div>
+`,
   inboundForm: (type, isEdit = false, row = null) => `
         <div class="max-w-4xl bg-white p-8 rounded-3xl shadow-sm border mx-auto font-lao">
             <h3 class="text-xl font-bold mb-6 text-indigo-600">${isEdit ? "ແກ້ໄຂເອກະສານ" : "ລົງທະບຽນເອກະສານ"}</h3>

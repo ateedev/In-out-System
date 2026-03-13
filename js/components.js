@@ -262,8 +262,10 @@ const rowsPerPage = 15;   // ຈຳນວນແຖວຕໍ່ໜ້າ
                         <option value="ໃບກິດສຳພັນ" ${isEdit && row[7] === "ໃບກິດສຳພັນ" ? "selected" : ""}>ໃບກິດສຳພັນ</option>
                         <option value="ໜັງສືເຊີນ" ${isEdit && row[7] === "ໜັງສືເຊີນ" ? "selected" : ""}>ໜັງສືເຊີນ</option>
                         <option value="ໜັງສືສະເໜີ" ${isEdit && row[7] === "ໜັງສືສະເໜີ" ? "selected" : ""}>ໜັງສືສະເໜີ</option>
-                         <option value="ໜັງສືສະເໜີ" ${isEdit && row[7] === "ໜັງສືສະເໜີ" ? "selected" : ""}>ໜັງສືຂອບໃຈ</option>
-                      
+                         <option value="ໜັງສືຂອບໃຈ" ${isEdit && row[7] === "ໜັງສືຂອບໃຈ" ? "selected" : ""}>ໜັງສືຂອບໃຈ</option>
+                      <option value="ສະໂໜດນຳສົ່ງ" ${isEdit && row[7] === "ສະໂໜດນຳສົ່ງ" ? "selected" : ""}>ສະໂໜດນຳສົ່ງ</option>
+                         <option value="ຂໍ້ຕົກລົງ" ${isEdit && row[7] === "ຂໍ້ຕົກລົງ" ? "selected" : ""}>ຂໍ້ຕົກລົງ</option>
+                         <option value="ບັດເຊີນ" ${isEdit && row[7] === "ບັດເຊີນ" ? "selected" : ""}>ບັດເຊີນ</option>
                     </select>
                 </div>
                 <div class="col-span-2">
